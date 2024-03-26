@@ -6,11 +6,82 @@
 
 Первым делом надо собрать проект, а так как я теперь линуксоид, то и инструкция будет для Линукса.
 
-1. Сначала раздобудьте где-нибудь CMake. Я хз, идёт ли он с каими-то дистрибутивами сразу, но лично я из магазина Debian что-то скачал, там гайды сами найдёте.
+1. Сначала раздобудьте где-нибудь CMake. Я хз, идёт ли он с каими-то дистрибутивами сразу, но лично я из магазина Debian что-то скачал, там гайды сами найдёте. А, и Git тоже нужен.
 
-2. Зайдите в терминал и готовьтесь копипастить следующие команды: сначала создайте каталог, где эту парашу и будем собирать.
+2. Зайдите в терминал и готовьтесь копипастить следующие команды: скопируйте репозиторий
 
-    habaisuniversegod@habacomp:~$ mkdir rpsg
-    habaisuniversegod@habacomp:~/rpsg$
+    habaisuniversegod@habacomp:~$ git clone https://github.com/habaisuniversegod/RPSG.git
+
+3. Появится директория `RPSG`. В ней будут файлы со всем стаффом. Перейдём туда:
+
+    habaisuniversegod@habacomp:~$ cd RPSG
+    habaisuniversegod@habacomp:~/RPSG$
+
+Можно посмотреть, что там есть:
+
+    habaisuniversegod@habacomp:~/RPSG$ ls
+    CMakeLists.txt  eval.h    lexer.cpp  main.cpp   wsave.cpp
+    eval.cpp        examples  lexer.h    README.md  wsave.h
+
+Нам это безразлично на самом деле, так что едем дальше.
+
+4. Создайте новую директорию, где всё и соберётся. Назвать можно как душе заблагорассудится. Потом в неё надо будет зайти:
+
+    habaisuniversegod@habacomp:~/RPSG$ mkdir tmp
+    habaisuniversegod@habacomp:~/RPSG$ cd tmp
+    habaisuniversegod@habacomp:~/RPSG/tmp$ 
+
+5. Натравливаем на это дело CMake:
+
+    habaisuniversegod@habacomp:~/RPSG/tmp$ cmake ..
+
+Дальше ждём и если ошибок нет, мы должны получить файлик Makefile:
+
+    habaisuniversegod@habacomp:~/RPSG/tmp$ ls
+    CMakeCache.txt  CMakeFiles  cmake_install.cmake  Makefile
+
+6. Натравливаем утилиту `make` на это добро:
+
+    habaisuniversegod@habacomp:~/RPSG/tmp$ make
+
+Если ошибок нет, то в текущей директории появится исполняемый файл `main`.
+
+7. Да впринципе готово, его можно хоть щас запустить, но без аргументов оно не попрёт, так что чтиай джоки дальше...
+
+## Запуск
+
+Формат аргументов таков:
+    
+    habaisuniversegod@habacomp:~/RPSG/tmp$ ./main <файл с кодом> <частота дискретизации> <длина (в секундах)> <выходной аудио-файл в формате .wav>
+
+Можно проверить примеры из папки `examples`:
+
+    habaisuniversegod@habacomp:~/RPSG/tmp$ ./main ../examples/ex1-0.4s.txt 44100 0.4 test.wav
+
+В папке с исполняемым файлом появится наш эпичнейший KSHMR Snare или Ride или Open Hat, я хз. Можно открыть в Audacity, позырить, пощёлкать, послушать:
+
+    ![как выглядит новый саунд европы](res/1.png)
+
+Если открыть файл `examples/ex1-0.4s.txt`, то увидим непонятный для вас текст:
+
+    $ 200 div
+    sin
+    1.25 add
+    2.25 div
+    rand mul
+    1
+    $ # div
+    sub
+    5 pow
+    mul
+
+Те, кто шарят за форты или PostScript'ы или в целом за стековые вычисления, они поймут. А для вас я потом доки напишу, щас лень уже UwU
+
+
+
+
+
+
+
 
 
