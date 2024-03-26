@@ -1,0 +1,12 @@
+1
+$ # div
+sub
+1 add
+8 pow
+50 add
+floor
+2 mod
+0.5 sub
+
+
+
