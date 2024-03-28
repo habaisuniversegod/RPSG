@@ -3,6 +3,8 @@
 #include "lexer.h"
 #include <stack>
 
+ // #define MAX_STACK_DEPTH 1024
+
 class Eval {
     std::stack<double> eval_stack;
 
@@ -10,8 +12,6 @@ class Eval {
     void push(double value);
 
 public:
-    const int MAX_STACK_DEPTH = 1024;
-
     Eval();
     ~Eval();
 

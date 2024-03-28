@@ -30,7 +30,7 @@ short* generate_audio(Eval& e, const std::vector<Token>& prog, unsigned int samp
     short* data = new short[samples_count];
 
     for (unsigned int i = 0; i < samples_count; i++){
-        data[i] = 32767 * e.eval(prog, (double)i, (double)samples_count);
+        data[i] = 32767 * std::max(-1.0, std::min(1.0, e.eval(prog, (double)i, (double)samples_count)));
     }
 
     return data;

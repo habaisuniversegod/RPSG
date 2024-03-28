@@ -1,0 +1,25 @@
+$ 100 div
+sin
+$ 50 div
+sin 2 div
+$ 25 div
+sin 4 div
+add
+add
+1.75 div
+
+1
+$ 20000 div
+sub
+0 max
+5 pow
+mul
+
+1 
+$ 5000 div
+sub
+0 max
+rand 0.25 mul
+mul
+add
+1.25 div
