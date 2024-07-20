@@ -19,7 +19,8 @@ mul
 $ 5000 div
 sub
 0 max
-rand 0.25 mul
+$ rand 
+0.25 mul
 mul
 add
 1.25 div

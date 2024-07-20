@@ -181,6 +181,8 @@ double Eval::eval(const std::vector<Token>& t, double var, double length){
                 push(round(left * pow(10, right)) / pow(10, right));
                 break;
             case T_RAND:
+                left = pop();
+                std::srand(left);
                 push((std::rand() / (double)RAND_MAX - 0.5) * 2.0);
                 break;
             case T_MIN:

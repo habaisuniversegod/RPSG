@@ -2,6 +2,7 @@ $ 200 div
 sin
 1.25 add
 2.25 div
+$
 rand mul
 1
 $ # div
