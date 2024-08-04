@@ -15,7 +15,7 @@ double Eval::pop(){
 
 void Eval::push(double value){
     if (eval_stack.size() >= MAX_STACK_DEPTH){
-        fprintf(stderr, "Error: stak overflow (max depth: %d)\n", MAX_STACK_DEPTH);
+        fprintf(stderr, "Error: staсk overflow (max depth: %d)\n", MAX_STACK_DEPTH);
         exit(-3);
     }
     eval_stack.push(value);
